@@ -12,7 +12,9 @@ policies:
   dst: "all"
   policy: "DROP"
 
-masq: []
+masq:
+- int: "eth0"
+  subnet: "172.16.17.0/24"
 
 rules:
 - rules:
