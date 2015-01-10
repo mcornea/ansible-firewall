@@ -1,0 +1,9 @@
+###############################################################################
+#ZONE   TYPE    OPTIONS         IN          OUT
+#                   OPTIONS         OPTIONS
+fw  firewall
+
+{% for i in zones %}
+{{ i.name }}	{{ i.type }}
+
+{% endfor %}

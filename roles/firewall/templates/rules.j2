@@ -1,0 +1,12 @@
+# For information on entries in this file, type "man shorewall-rules"
+#############################################################################################################
+#ACTION     SOURCE      DEST        PROTO   DEST    SOURCE      ORIGINAL    RATE        USER/   MARK
+#                           PORT    PORT(S)     DEST        LIMIT       GROUP
+
+ACCEPT	net             $FW 		icmp		#Permit ICMP
+{% for i in rules %}
+{% for j in i.rules %}
+{{ j.action }}	{% if j.src is defined %}net:{{ j.src }}{% else %}-{% endif %}	$FW		{% if j.proto is defined %}{{ j.proto }}{% else %}-{% endif %}	{% if j.port is defined %}{{ j.port }}{% else %}-{% endif %}	{% if j.comment is defined %}#{{ j.comment }}{% else %}# -{% endif %}
+
+{% endfor %}
+{% endfor %}

@@ -1,0 +1,29 @@
+---
+zones:
+- name: "net"
+  type: "ipv4"
+
+interfaces: 
+- int: "eth0"
+  zone: "net"
+
+policies:
+- src: "net"
+  dst: "all"
+  policy: "DROP"
+
+masq: []
+
+rules:
+- rules:
+  - action: "ACCEPT"
+    src: "0.0.0.0/0"
+    proto: "tcp"
+    port: 22
+    comment: "Public SSH"
+  - action: "ACCEPT"
+    src: "0.0.0.0/0"
+    proto: "tcp"
+    port: 80
+    comment: "Public HTTP"
+

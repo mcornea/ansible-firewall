@@ -1,0 +1,6 @@
+---
+- name: Install shorewall
+  hosts: localhost
+
+  roles:
+    - firewall

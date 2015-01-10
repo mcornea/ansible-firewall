@@ -1,0 +1,36 @@
+---
+- name: install shorewall
+  yum: name=shorewall state=installed
+
+- name: create zones file
+  template: src=zones.j2 dest='/etc/shorewall/zones'
+  notify: 
+  - restart shorewall
+
+- name: create interfaces file
+  template: src=interfaces.j2 dest='/etc/shorewall/interfaces'
+  notify: 
+  - restart shorewall
+
+- name: create policy file
+  template: src=policy.j2 dest='/etc/shorewall/policy'
+  notify: 
+  - restart shorewall
+
+- name: create rules file
+  template: src=rules.j2 dest='/etc/shorewall/rules'
+  notify: 
+  - restart shorewall
+
+- name: create masq file
+  template: src=masq.j2 dest='/etc/shorewall/masq'
+  notify: 
+  - restart shorewall
+  
+- name: create shorewall.conf file
+  template: src=shorewall.conf.j2 dest='/etc/shorewall/shorewall.conf'
+  notify: 
+  - restart shorewall
+
+- name: enable shorewall
+  service: name=shorewall state=started enabled=yes
