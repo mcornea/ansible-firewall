@@ -3,5 +3,5 @@
 # #INTERFACE      SOURCE      ADDRESS     PROTO   PORT(S) IPSEC   MARK
 #
 {% for i in masq %}
-{% if i.interface is defined %}{{ i.interface }}{% else %}{% endif %}		{% if i.subnet is defined %}{{ i.subnet }}{% else %}{% endif %}
+{% if i.int is defined %}{{ i.int }}{% else %}{% endif %}		{% if i.subnet is defined %}{{ i.subnet }}{% else %}{% endif %}
 {% endfor %}
