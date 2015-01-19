@@ -2,15 +2,26 @@
 zones:
 - name: "net"
   type: "ipv4"
+- name: "lan"
+  type: "ipv4"
+- name: "vpn"
+  type: "ipv4"
 
 interfaces: 
 - int: "eth0"
   zone: "net"
+- int: "eth1"
+  zone: "lan"
+- int: "tun+"
+  zone: "vpn"
 
 policies:
 - src: "net"
   dst: "all"
   policy: "DROP"
+- src: "vpn"
+  dst: "all"
+  policy: "ACCEPT"
 
 masq:
 - int: "eth0"
