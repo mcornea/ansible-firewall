@@ -39,7 +39,7 @@ rules:
     comment: "Public SSH"
   - action: "ACCEPT"
     src: "0.0.0.0/0"
-    proto: "tcp"
-    port: 80
-    comment: "Public HTTP"
+    proto: "udp"
+    port: 1193
+    comment: "Public OpenVPN"
 
