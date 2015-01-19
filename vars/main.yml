@@ -40,6 +40,6 @@ rules:
   - action: "ACCEPT"
     src: "0.0.0.0/0"
     proto: "udp"
-    port: 1193
+    port: 1194
     comment: "Public OpenVPN"
 
