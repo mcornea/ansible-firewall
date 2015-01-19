@@ -3,7 +3,7 @@
   yum: name=shorewall state=installed
 
 - name: enable ipv4 forwarding
-  - sysctl: name="net.ipv4.ip_forward" value=1 sysctl_set=yes state=present reload=yes
+  sysctl: name="net.ipv4.ip_forward" value=1 sysctl_set=yes state=present reload=yes
 
 - name: create zones file
   template: src=zones.j2 dest='/etc/shorewall/zones'
