@@ -3,8 +3,9 @@ Ansible role for shorewall provisioning
 
 site.yml:
 ---
-- name: Install openvpn
+- name: Install shorewall
   hosts: localhost
 
-  roles:
-    - openvpn
+    roles:
+        - firewall
+
