@@ -19,7 +19,7 @@ policies:
 - src: "net"
   dst: "all"
   policy: "DROP"
-- src: "net"
+- src: "lan"
   dst: "all"
   policy: "ACCEPT"
 - src: "vpn"
